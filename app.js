@@ -44,50 +44,29 @@ app.get('/', (req, res) => {
 });
 
 
-// app.get('/reportes', (req, res) => {
-//     var listaReportes;
-//     let userKeys = [];
-//     let i = 0;
-//     refReportes.orderByChild('categoria')
+app.get('/reportes', (req, res) => {
+    var listaReportes;
+    let userKeys = [];
+    let i = 0;
+    refReportes.orderByChild('categoria')
 
-//     .on('value', (data) => {
-//         data.forEach((child) => {
-//             console.log(child.key + ': ' + JSON.stringify(child.val()));
-//         });
-//         listaReportes = data.val();
-
-//         console.log("Lista 0: ", listaReportes);
-
-//         // for (i = 0; i < 1; i++) {
-//         //     refReportes.child(userKeys[i]).on('value', (data) => {
-//         //         console.log(`Reportes del Usuario ${i}: ${JSON.stringify(data.val())}`);
-//         //     });
-
-//         // }
-
-//         res.render('listaReportes', { listaReportes: listaReportes });
-//     })
-
-// });}
-
-refReportes.on('child_changed', (data) => {
-    listaReportes = data.categoria;
-    console.log("La categoria es: ", listaReportes);
-    app.get('/reportes', (req, res) => {
+    .on('value', (data) => {
+        listaReportes = data.val();
         res.render('listaReportes', { listaReportes });
-    });
+    })
+
 });
 
-app.post('/guardar', (req, res) => {
-    var objetoBrus = {
-        nombre: req.body.firstname,
-        apellidosBruses: req.body.lastname
-    }
-    let newRow = ref.push(objetoBrus);
-    console.log(newRow.key);
-    res.render('home', {
-        titulo: req.body.firstname
-    });
+//brus
+app.post('/reportes', (req, res) => {
+    console.log("solicitud: ", req.body.categoria);
+    let categoriaBusqueda = req.body.categoria;
+    refReportes.orderByChild("categoria").equalTo(categoriaBusqueda)
+        .on('value', (data) => {
+            var reportesFiltrados = data.val();
+            res.render('listaReportes', { listaReportes: reportesFiltrados });
+        });
+
 });
 
 

@@ -9,7 +9,34 @@
 </head>
 <body>
     
-    <h1>Reportes App Muni Tacna</h1>
+    <div class="container">
+      <h1 align="center">Reportes App Muni Tacna</h1>
+      <h6>Selecciona la categoria:</h6>
+      
+        <form action="/reportes" method="POST">
+        <div class="row">
+         <div class="col-8">
+           <select class="form-control form-control-lg" name="categoria" id="categoria">
+                            
+                            <option class ="categoria" name="categoria" id="carrera_1" value="Parques y Jardines">Parques y Jardines</option>
+                            <option class ="categoria" name="categoria" id="carrera_2" value="Pistas y Veredas">Pistas y Veredas</option>
+                            <option class ="categoria" name="categoria" id="carrera_3" value="Seguridad">Seguridad</option>
+                            <option class ="categoria" name="categoria" id="carrera_4" value="Transporte Público">Transporte Público</option>
+                            <option class ="categoria" name="categoria" id="carrera_5" value="Limpieza Pública">Limpieza Pública</option>
+                            
+                          </select>
+                            
+          </div>
+          <div class="col-4" class="btn waves-effect waves light">
+                        <button id="submitButton" type="submit" value="submit" class="btn btn-success btn-lg"> <i class="">Buscar!</i></button>
+
+          </div>
+      </div>
+      
+              </form>
+              <br>          
+              
+      
 <table class="table table-striped">
   <thead>
     <tr>
@@ -37,7 +64,24 @@
     
   </tbody>
 </table>
+    </div>
 
-    
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> AppMuniTacna</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
 </body>
 </html>
