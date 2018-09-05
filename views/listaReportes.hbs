@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Lista de usuarios</title>
+</head>
+<body>
+    
+    <h1>Reportes App Muni Tacna</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Título</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Fecha </th>
+      <th scope="col">Ubicación </th>
+      <th scope="col">Imagen </th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each listaReportes}}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{categoria}}</td>
+      <td>{{titulo}}</td>
+      <td>{{descripcion}}</td>
+      <td>{{fecha}}</td>
+      <td>{{ubicacion}}</td>
+      <td><a href="{{imgURL}}" class="btn btn-info" role="button">Ver Imagen</a></td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+
+    
+</body>
+</html>
